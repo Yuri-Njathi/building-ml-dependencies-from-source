@@ -48,3 +48,5 @@ python setup.py bdist_wheel`
 5. [Tutorial: Running YOLOv5 Machine Learning Detection on a Raspberry Pi 4](https://jordan-johnston271.medium.com/tutorial-running-yolov5-machine-learning-detection-on-a-raspberry-pi-4-3938add0f719) 
 
 6. [pytorch-rpi](https://github.com/ljk53/pytorch-rpi)
+
+7. [Youtube Video : Install PyTorch and TorchVision on Raspberry pi computer ](https://www.youtube.com/watch?v=weHvI6j4OT8&t=142s)
