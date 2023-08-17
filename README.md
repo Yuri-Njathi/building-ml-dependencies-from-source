@@ -37,3 +37,5 @@ python setup.py bdist_wheel`
 3. [pytorch-arm-builds](https://github.com/nmilosev/pytorch-arm-builds)
 
 4. [Torchvision](https://github.com/pytorch/vision)
+
+5. [Tutorial: Running YOLOv5 Machine Learning Detection on a Raspberry Pi 4](https://jordan-johnston271.medium.com/tutorial-running-yolov5-machine-learning-detection-on-a-raspberry-pi-4-3938add0f719) 
