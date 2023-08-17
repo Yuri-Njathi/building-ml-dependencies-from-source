@@ -1,7 +1,7 @@
 # building-ml-dependencies-from-source
 
-# Raspberry Pi 32-bit
-1. PyTorch and Torchvision
+Raspberry Pi 32-bit
+# 1. PyTorch and Torchvision
 ## Dependencies
 `sudo apt install libopenblas-dev libblas-dev m4 cmake cython python3-dev python3-yaml python3-setuptools`
 
@@ -35,3 +35,5 @@ python setup.py bdist_wheel`
 2. [Compling ARM stuff without an ARM board / Build PyTorch for the Raspberry Pi](https://nmilosev.svbtle.com/compling-arm-stuff-without-an-arm-board-build-pytorch-for-the-raspberry-pi)
 
 3. [pytorch-arm-builds](https://github.com/nmilosev/pytorch-arm-builds)
+
+4. [Torchvision](https://github.com/pytorch/vision)
