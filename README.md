@@ -34,6 +34,7 @@ git checkout v0.8.1
 git submodule update --init --recursive
 python setup.py bdist_wheel`
 
+# 2. OpenCV-Python
 
 
 # References
@@ -50,3 +51,5 @@ python setup.py bdist_wheel`
 6. [pytorch-rpi](https://github.com/ljk53/pytorch-rpi)
 
 7. [Youtube Video : Install PyTorch and TorchVision on Raspberry pi computer ](https://www.youtube.com/watch?v=weHvI6j4OT8&t=142s)
+
+8. [Install OpenCV on your Raspberry Pi](https://raspberrypi-guide.github.io/programming/install-opencv) 
