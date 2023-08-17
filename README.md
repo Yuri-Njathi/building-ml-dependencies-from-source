@@ -16,10 +16,17 @@ export MAX_JOBS=4`
 The wheel file will be created in pytorch/dist/* after running the following commands.
 
 ### PyTorch
+A.
 `git clone https://github.com/pytorch/pytorch --recursive && cd pytorch
 git checkout v1.7.0
 git submodule update --init --recursive
 python setup.py bdist_wheel`
+
+B.
+Install the latest Raspberry Pi OS (32-bit).
+Run `sudo apt update && sudo apt upgrade`.
+Run `git clone git@github.com:ljk53/pytorch-rpi && cd pytorch-rpi`.
+Run `LIBTORCH_VARIANT=armv7l-cxx11-abi-shared-without-deps ./build_libtorch.sh`.
 
 ### Torchvision
 `git clone https://github.com/pytorch/vision && cd vision
