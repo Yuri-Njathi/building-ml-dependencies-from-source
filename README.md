@@ -92,25 +92,31 @@ These worked though:
 `python V -> Python 3.7.7`
 
 ## 1. PyTorch and Torchvision
-### Dependencies
-`sudo apt install libopenblas-dev libblas-dev m4 cmake cython python3-dev python3-yaml python3-setuptools`
-
-### Build Options
-`export NO_CUDA=1
-export NO_DISTRIBUTED=1
-export NO_MKLDNN=1 
-export BUILD_TEST=0
-export MAX_JOBS=4`
-
-### Compile
-The wheel file will be created in pytorch/dist/* after running the following commands.
 
 #### PyTorch
 A.
-`git clone https://github.com/pytorch/pytorch --recursive && cd pytorch
-git checkout v1.7.0
-git submodule update --init --recursive
-python setup.py bdist_wheel`
+Clone pytorch repository:
+
+`git clone https://github.com/pytorch/pytorch --recursive && cd pytorch`
+
+Select pytorch version you want to build from source here I select version 1.9.0
+`git checkout v1.9.0`
+
+Synchronize pytorch version with it's dependencies and update the dependencies
+
+`git submodule sync`
+
+`git submodule update --init --recursive`
+
+Set building parameters
+
+`export NO_CUDA=1`
+`export NO_DISTRIBUTED=1`
+`export NO_MKLDNN=1`
+`export BUILD_TEST=0 # for faster builds`
+`export MAX_JOBS=8 # I had 8 cores in one machine and 4 in another # To find the number of cores I used `lscpu`
+`# export NO_NNPACK=1 # update July 19, this is optional, can build with NNPACK`
+`# export NO_QNNPACK=1 # same as above can be omitted`
 
 B.
 Install the latest Raspberry Pi OS (32-bit).
