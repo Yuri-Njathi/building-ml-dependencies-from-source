@@ -6,11 +6,11 @@
 `sudo apt install libopenblas-dev libblas-dev m4 cmake cython python3-dev python3-yaml python3-setuptools`
 
 ### Build Options
-`export NO_CUDA=1
-export NO_DISTRIBUTED=1
-export NO_MKLDNN=1 
-export BUILD_TEST=0
-export MAX_JOBS=4`
+`export NO_CUDA=1`
+`export NO_DISTRIBUTED=1`
+`export NO_MKLDNN=1` 
+`export BUILD_TEST=0`
+`export MAX_JOBS=4`
 
 ### Compile
 The wheel file will be created in pytorch/dist/* after running the following commands.
@@ -139,11 +139,11 @@ Install pytorch
 
 Build Torchvision
 
-`git clone https://github.com/pytorch/vision && cd vision
-git checkout v0.10.0
-git submodule sync
-git submodule update --init --recursive
-python3 setup.py bdist_wheel`
+`git clone https://github.com/pytorch/vision && cd vision`
+`git checkout v0.10.0`
+`git submodule sync`
+`git submodule update --init --recursive`
+`python3 setup.py bdist_wheel`
 
 `pip3 install ../vision/dist/torchvision-0.9.0a0+01dfa8e-cp37-cp37m-linux_armv7l.whl`
 
