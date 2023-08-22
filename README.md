@@ -44,7 +44,7 @@ python setup.py bdist_wheel`
 `pip install opencv-python==4.7.0.72`
 
 
-# On Fedora
+# On Fedora (worked but the files have a torch_c issue)
 ## 1. PyTorch and Torchvision
 ### Dependencies
 `sudo apt install libopenblas-dev libblas-dev m4 cmake cython python3-dev python3-yaml python3-setuptools`
