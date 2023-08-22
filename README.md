@@ -44,7 +44,44 @@ python setup.py bdist_wheel`
 `pip install opencv-python==4.7.0.72`
 
 
-# On Fedora (worked but the files have a torch_c issue)
+# On Fedora (worked but the files have a torch_c issue) [2]
+
+## Preparation
+
+1. Install packages: qemu,  qemu-user and Virt manager
+`sudo dnf install qemu-system-arm qemu-user-static virt-manager`
+
+2. Install rootfs to emulate raspberry pi architecture
+`sudo dnf install --releasever=30 --installroot=/tmp/F30ARM --forcearch=armv7hl --repo=fedora --repo=updates systemd passwd dnf fedora-release vim-minimal openblas-devel blas-devel m4 cmake python3-Cython python3-devel python3-yaml python3-pillow python3-setuptools python3-numpy python3-cffi python3-wheel gcc-c++ tar gcc git make tmux -y`
+
+This will install a ARM rootfs to your /tmp directory along with everything you need to build PyTorch.
+You can access it by opening file explorer in Fedora -> Other Locations -> Fedora Linux -> tmp -> F30ARM, here all files are located within.
+
+3. Use chroot to access it.
+`sudo chroot /tmp/F30ARM`
+
+ 4. You are now within the "ARM board". Verify your kernel arch:
+In the documentation they got
+`Linux toshiba-x70-a 5.1.12-300.fc30.x86_64 #1 SMP Wed Jun 19 15:19:49 UTC 2019 armv7l armv7l armv7l GNU/Linux`
+
+I got
+`Linux fedora 6.2.9-300.fc38.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Mar 30 22:32:58 UTC 2023 armv7l armv7l armv7l GNU/Linux`
+
+Then run a few commands to make the system work:
+`/usr/lib/python3.7/site-packages/dnf/rpm/__init__.py` 
+
+I got an error for this.
+`usr/lib/python3.7/site-packages/dnf/rpm/__init__.py: Permission denied`
+
+These worked though:
+`alias dnf='dnf --releasever=30 --forcearch=armv7hl --repo=fedora --repo=updates'`
+
+`alias python=python3`
+
+`echo 'nameserver 8.8.8.8' > /etc/resolv.conf`
+
+`python V -> Python 3.7.7`
+
 ## 1. PyTorch and Torchvision
 ### Dependencies
 `sudo apt install libopenblas-dev libblas-dev m4 cmake cython python3-dev python3-yaml python3-setuptools`
