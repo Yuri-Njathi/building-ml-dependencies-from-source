@@ -132,10 +132,19 @@ the wheel will be inside `dist/` folder within the `pytorch/` folder.
 Mount disk # Why??
 `mount -o bind /dev /tmp/F30ARM/dev`
 
-B. #### Torchvision
+#### B. Torchvision
 
 Install pytorch
 `pip3 install ../pytorch/dist/torch-1.9.0a0+gitd69c22d-cp37-cp37m-linux_armv7l.whl`
+
+Build Torchvision
+git clone https://github.com/pytorch/vision && cd vision
+git checkout v0.10.0
+git submodule sync
+git submodule update --init --recursive
+python3 setup.py bdist_wheel
+
+`pip3 install ../vision/dist/torchvision-0.9.0a0+01dfa8e-cp37-cp37m-linux_armv7l.whl`
 
 ## References
 1. [PyTorch 1.7.0 and torchvision 0.8.0 builds for RaspberryPi 4 (32bit OS)](https://github.com/Kashu7100/pytorch-armv7l)
