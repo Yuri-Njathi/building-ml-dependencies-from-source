@@ -93,8 +93,8 @@ These worked though:
 
 ## 1. PyTorch and Torchvision
 
-#### PyTorch
-A.
+#### A. PyTorch
+
 Clone pytorch repository:
 
 `git clone https://github.com/pytorch/pytorch --recursive && cd pytorch`
@@ -118,25 +118,24 @@ Set building parameters
 
 `export BUILD_TEST=0 # for faster builds`
 
-`export MAX_JOBS=8 # I had 8 cores in one machine and 4 in another # To find the number of cores I used `lscpu`
+`export MAX_JOBS=8` # I had 8 cores in one machine and 4 in another # To find the number of cores I used `lscpu`
 
 `# export NO_NNPACK=1 # update July 19, this is optional, can build with NNPACK`
 
 `# export NO_QNNPACK=1 # same as above can be omitted`
 
-B.
-Install the latest Raspberry Pi OS (32-bit).
-Run `sudo apt update && sudo apt upgrade`.
-Run `git clone git@github.com:ljk53/pytorch-rpi && cd pytorch-rpi`.
-Run `LIBTORCH_VARIANT=armv7l-cxx11-abi-shared-without-deps ./build_libtorch.sh`.
+Build the Pytorch wheel; took about 2 and a half hours for the 8-core machine
+`python setup.py bdist_wheel`
 
-#### Torchvision
-`git clone https://github.com/pytorch/vision && cd vision
-git checkout v0.8.1
-git submodule update --init --recursive
-python setup.py bdist_wheel`
+the wheel will be inside `dist/` folder within the `pytorch/` folder.
 
+Mount disk # Why??
+`mount -o bind /dev /tmp/F30ARM/dev`
 
+B. #### Torchvision
+
+Install pytorch
+`pip3 install ../pytorch/dist/torch-1.9.0a0+gitd69c22d-cp37-cp37m-linux_armv7l.whl`
 
 ## References
 1. [PyTorch 1.7.0 and torchvision 0.8.0 builds for RaspberryPi 4 (32bit OS)](https://github.com/Kashu7100/pytorch-armv7l)
